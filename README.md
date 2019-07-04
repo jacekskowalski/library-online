@@ -4,13 +4,13 @@
 
 Library online allow you to simple search by the following categories: 
 
--by ISBN. 
+-by ISBN (property industryIdentifiers[0].type- ISBN_13
 
 -by category.
 
 -by author.
 
-JSON response is returned.
+Data is loaded from attached books.json file. JSON response is returned.
 
 The app runs on port 8080.
 
@@ -39,3 +39,5 @@ API testing is done thanks to RESTassured and JUnit.
 To test endpoint just go to api.test package, run the app and then ControllerTest class.
 
 Some tests methods will be performed on endpoints which include testing proper parameters, statuses and if response is not empty
+
+
