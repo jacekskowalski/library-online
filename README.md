@@ -38,7 +38,7 @@ API testing is done thanks to RESTassured and JUnit.
 
 ## Testing
 
-The easist way to run is with the use of Intellij -mvn clean insta;;.
+The easist way to run is with the use of Intellij -mvn clean install;.
 
 To test app and endpoints run LibraryOnlineApplication and then and then ControllerTest class.
 
