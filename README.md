@@ -22,13 +22,15 @@ The available endpoints:
 
 /category
 
+To start app run LibraryOnlineApplication 
+
 ## The RESTful Architecture
 
 To create frontend presentation layer JavaScript, Bootstrap were used.
 
 To create backend and business layer Java and SpringBoot were used.
 
-Persistance is based on Reposiory layer
+Persistance is based on Repository layer
 
 Data are stored in embedded Mongo database- Flapdoodle.
 
@@ -36,8 +38,10 @@ API testing is done thanks to RESTassured and JUnit.
 
 ## Testing
 
-To test endpoint just go to api.test package, run the app and then ControllerTest class.
+The easist way to run is with the use of Intellij -mvn clean insta;;.
 
-Some tests methods will be performed on endpoints which include testing proper parameters, statuses and if response is not empty
+To test app and endpoints run LibraryOnlineApplication and then and then ControllerTest class.
+
+A few tests methods will be performed on endpoints which include testing proper parameters, statuses and if response is not empty
 
 
