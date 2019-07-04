@@ -4,7 +4,7 @@
 
 Library online allow you to simple search by the following categories: 
 
--by ISBN (property industryIdentifiers[0].type- ISBN_13)
+-by ISBN (property industryIdentifiers[0].type)
 
 -by category.
 
@@ -12,7 +12,7 @@ Library online allow you to simple search by the following categories:
 
 Data is loaded from attached books.json file. JSON response is returned.
 
-The app runs on port 8080.
+The app runs on port 8091.
 
 The available endpoints:
 
