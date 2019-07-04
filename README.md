@@ -12,7 +12,7 @@ Library online allow you to simple search by the following categories:
 
 Data is loaded from attached books.json file. JSON response with detailed information about books is returned. 
 
-The app runs on port 8091.
+The app runs on port 8091. To view applictation go to localhost:8091.
 
 The available endpoints:
 
