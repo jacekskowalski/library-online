@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Library online</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script
+            src="https://code.jquery.com/jquery-3.4.1.js"
+            integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<style>
+
+    #rsults{
+   margin-left:20%;
+
+    }
+</style>
+</head>
+<body>
+<nav class="navbar navbar-dark bg-dark justify-content-between">
+    <a class="navbar-brand text-white">Library online</a>
+</nav>
+<div class="container" id="mainDiv">
+
+</div>
+<script>
+    "use strict";
+
+    let savedValues= window.localStorage.getItem("storeObj3");
+    let card="";
+    let obj =JSON.parse(Array.from(savedValues).join(""));
+    let len = Object.keys(obj).length;
+console.log(obj);
+  for(let i=0;i<len;i++){
+    let na = obj[i]["averageRating"] == 0 ? "Rating: N/A" : obj[i]["averageRating"];
+    card += '<div class="d-flex flex-row align-items-center col-xs-12">';
+    card += '<p>'+ obj[i]["author"] +'</p>';
+    card += '</div>';
+    card += '<div class="d-flex flex-row align-items-center col-xs-12">';
+    card += '<p>'+ na+'</p>';
+    card += '</div>';
+    }
+
+document.getElementById('mainDiv').innerHTML += card;
+
+</script>
+</body>
+</html>

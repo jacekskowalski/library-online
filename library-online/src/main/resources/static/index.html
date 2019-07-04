@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Library online</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script
+            src="https://code.jquery.com/jquery-3.4.1.js"
+            integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+</head>
+<body>
+<nav class="navbar navbar-dark bg-dark justify-content-between">
+    <a class="navbar-brand text-white">Library online</a>
+</nav>
+<div class="container">
+    <div class="d-flex justify-content-center align-items-center" style="margin-top: 10%">
+
+        <form id="myform">
+            <legend>Search books</legend>
+            <div style="width: 400px;min-width: 300px">
+                <input type="text" class="form-control" id="search" >
+            </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
+            <label class="form-check-label" for="exampleRadios1">
+                by ISBN
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+            <label class="form-check-label" for="exampleRadios2">
+                by category
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3">
+            <label class="form-check-label" for="exampleRadios3">
+                by author
+            </label>
+        </div>
+            <div class="col-sm-10">
+                <button type="submit" class="btn btn-primary">Search</button>
+            </div>
+        </form>
+    </div>
+
+</div>
+<script>
+    "use strict";
+    let inputValue,
+        inputV,
+        rateValue;
+    document.getElementById('myform').addEventListener('submit', function(e) {
+        e.preventDefault();
+        rateValue =document.querySelector('input[name="exampleRadios"]:checked').value;
+        inputV= document.getElementById("search").value;
+        inputValue= inputV.charAt(0).toUpperCase() + inputV.slice(1);
+     serveRequest(rateValue,inputValue);
+     redirect(rateValue);
+    });
+
+       function serveRequest(selectedValue, inputValue){
+         let xhr = new XMLHttpRequest();
+              switch (selectedValue) {
+            case "option1" :
+                xhr.open('GET', 'http://localhost:8091/books?isbn='+ encodeURIComponent(inputValue), true);
+                xhr.send();
+                xhr.onreadystatechange = ()=> {
+                    if (xhr.readyState == 4 && xhr.status == 200) {
+                        window.localStorage.setItem('storeObj1', xhr.responseText);
+                                          }
+                };
+                break;
+            case "option2":
+                xhr.open('GET', 'http://localhost:8091/category/'+ encodeURIComponent(inputValue), true);
+                xhr.send();
+                xhr.onreadystatechange = ()=> {
+                    if (xhr.readyState == 4 && xhr.status == 200) {
+                            window.localStorage.setItem('storeObj2', xhr.responseText);
+                                                }
+                };
+                break;
+            case "option3":
+                xhr.open('GET', 'http://localhost:8091/author/'+ encodeURIComponent(inputValue), true);
+                xhr.send();
+                xhr.onreadystatechange = ()=> {
+                    if (xhr.readyState == 4 && xhr.status == 200) {
+                        window.localStorage.setItem('storeObj3', xhr.responseText);
+                        console.log(xhr.responseText);
+                                          }
+                };
+                break;
+        }
+
+    }
+        function redirect(rateValue) {
+        if(rateValue === "option1"){
+            window.location= "books.html";
+        }else if(rateValue === "option2"){
+            window.location = "categories.html";
+        }else if(rateValue === "option3"){
+            window.location = "authors.html";
+        }
+        return false;
+    }
+</script>
+</body>
+</html>
