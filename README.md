@@ -36,6 +36,6 @@ API testing is done thanks to RESTassured and JUnit.
 
 ## Testing
 
-To test endpoint just run the app and then ControllerTest class.
+To test endpoint just go to api.test package, run the app and then ControllerTest class.
 
 Some tests methods will be performed on endpoints which include testing proper parameters, statuses and if response is not empty
