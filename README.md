@@ -4,7 +4,7 @@
 
 Library online allow you to simple search by the following categories: 
 
--by ISBN (property industryIdentifiers[0].type- ISBN_13
+-by ISBN (property industryIdentifiers[0].type- ISBN_13)
 
 -by category.
 
