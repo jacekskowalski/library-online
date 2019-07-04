@@ -4,13 +4,13 @@
 
 Library online allow you to simple search by the following categories: 
 
--by ISBN (property industryIdentifiers[0].type)
+-by ISBN - key is property from .json file ->industryIdentifiers[0].type
 
--by category.
+-by category
 
 -by author.
 
-Data is loaded from attached books.json file. JSON response is returned.
+Data is loaded from attached books.json file. JSON response with detailed information about books is returned. 
 
 The app runs on port 8091.
 
@@ -38,9 +38,9 @@ API testing is done thanks to RESTassured and JUnit.
 
 ## Testing
 
-The easist way to run is with the use of Intellij -mvn clean install;.
+The best tool to run is with the use of Intellij. First -mvn clean install.
 
-To test app and endpoints run LibraryOnlineApplication and then and then ControllerTest class.
+To test app and endpoints run LibraryOnlineApplication and then ControllerTest class. Embedded database demands working app.
 
 A few tests methods will be performed on endpoints which include testing proper parameters, statuses and if response is not empty
 
