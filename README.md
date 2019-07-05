@@ -40,7 +40,7 @@ API testing is done thanks to RESTassured and JUnit.
 
 The best tool to run is with the use of Intellij. First -mvn clean install.
 
-To test app and endpoints run LibraryOnlineApplication and then ControllerTest class. Embedded database demands working app.
+To test app and endpoints run LibraryOnlineApplication and then ControllerTest class or mvn test.Testing class is in webapi package Embedded database demands working app.
 
 A few tests methods will be performed on endpoints which include testing proper parameters, statuses and if response is not empty
 
